@@ -8,8 +8,8 @@
 
 ### About
 This is a set of small shell scripts used to simplify common tasks, like keeping
-Homebrew up-to-date (Mac only), keeping Ruby up-to-date, decoding Amazon Kinesis
-data blocks and verifying the integrity of downloaded files.
+Homebrew (Mac only), Python Installed Packages (PIP) & Ruby up-to-date, decoding
+Amazon Kinesis data blocks and verifying the integrity of downloaded files.
 
 Instructions for each script are at the top of the file.  Simply run each script
 without arguments - if arguments are required, a usage string will be printed to
