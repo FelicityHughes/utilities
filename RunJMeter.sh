@@ -12,7 +12,7 @@ jmeter "${@}"
 JMETER_RETURN="${?}"
 
 if (( JMETER_RETURN != 0 )); then
-  echo "\$JAVA_HOME is currently *$JAVA_HOME*.  This MAY NOT be compatible with JMeter!"
+  echo "\$JAVA_HOME is currently *${JAVA_HOME}*.  This MAY NOT be compatible with JMeter!"
 fi
 
 exit ${JMETER_RETURN}
