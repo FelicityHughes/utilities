@@ -4,10 +4,13 @@
 #### External
 1. [Homebrew](https://brew.sh/)
 2. [rbenv](https://github.com/rbenv/rbenv)
-3. [GPG](https://www.gnupg.org/) - see [GPG Suite](https://gpgtools.org/) for Mac
-4. [Perlbrew](https://perlbrew.pl/)
-5. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-install-macos.html)
-6. [saml2aws](https://github.com/Versent/saml2aws)
+3. [ruby-build](https://github.com/rbenv/ruby-build)
+4. [GPG](https://www.gnupg.org/) - see [GPG Suite](https://gpgtools.org/) for Mac
+5. [Perlbrew](https://perlbrew.pl/)
+6. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-install-macos.html)
+7. [saml2aws](https://github.com/Versent/saml2aws)
+
+On Mac, most of the above software can be managed with Homebrew.
 
 ### About
 This is a set of small shell scripts used to simplify common tasks, such as:
