@@ -3,6 +3,7 @@
 ################################################################################
 # This script keeps Perl up-to-date.
 ################################################################################
+PERLBREW_EXE="${HOME}/perl5/perlbrew/bin/perlbrew"
 
-~/perl5/perlbrew/bin/perlbrew self-upgrade
-~/perl5/perlbrew/bin/perlbrew upgrade-perl
+"${PERLBREW_EXE}" self-upgrade
+"${PERLBREW_EXE}" upgrade-perl

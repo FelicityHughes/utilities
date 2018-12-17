@@ -7,6 +7,8 @@
 # Beware if you choose to install editable packages.  See this post for details:
 # https://stackoverflow.com/questions/2720014/upgrading-all-packages-with-pip
 ################################################################################
+PIP2_EXE="/usr/local/bin/pip2"
+PIP3_EXE="/usr/local/bin/pip3"
 
-/usr/local/bin/pip3 list --no-cache-dir --outdated | awk '!/^(---|Package)/ {print $1;}' | xargs -n1 /usr/local/bin/pip3 install -U
-/usr/local/bin/pip2 list --outdated | awk '!/^(---|Package)/ {print $1;}' | xargs -n1 /usr/local/bin/pip2 install --upgrade pip
+"${PIP3_EXE}" list --no-cache-dir --outdated | awk '!/^(---|Package)/ {print $1;}' | xargs -n1 "${PIP3_EXE}" install -U
+"${PIP2_EXE}" list --outdated | awk '!/^(---|Package)/ {print $1;}' | xargs -n1 "${PIP2_EXE}" install --upgrade pip

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 ################################################################################
 # This script verifies the integrity of a file by validating its checksum and
 # signature (if available).  GPG must already be installed.

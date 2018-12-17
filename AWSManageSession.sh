@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 ################################################################################
 # This script keeps AWS sessions alive by requesting a new token with saml2aws.
 # The first time the script is run for a given profile, it will try to create an

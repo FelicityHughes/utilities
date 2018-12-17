@@ -1,12 +1,14 @@
-#!/usr/bin/env bash
-
+#!/usr/bin/env bash -l
 
 ################################################################################
 # This script keeps rbenv (a Ruby environment manager) and Ruby up-to-date.  No
 # arguments are required.
+#
+# It is assumed rbenv and ruby-build are installed and configured for a login
+# shell.  If you have aliases in your login profile, please take extra care to
+# review this script and ensure it doesn't unintentionally invoke any of those
+# aliases.
 ################################################################################
-
-
 LATEST_VERSION="$("rbenv" "install" "-l" | "grep" "-v" "-" | "tail" "-1" | "tr" "-d" '[:space:]')"
 VERSION_MATCH="$("rbenv" "versions" | "grep" "${LATEST_VERSION}")"
 
