@@ -12,6 +12,6 @@ BREW_EXE="/usr/local/bin/brew"
 # "${BREW_EXE}" update - No longer needed as it's done by cask upgrade.
 "${BREW_EXE}" upgrade
 "${BREW_EXE}" cu --cleanup -y < /dev/null  # See https://github.com/buo/homebrew-cask-upgrade for details
-"${BREW_EXE} cleanup
+"${BREW_EXE}" cleanup
 # NOTE:  May need to remove old Java installations manually from 
 # /Library/Java/JavaVirtualMachines
