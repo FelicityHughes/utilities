@@ -35,14 +35,17 @@ readonly ALLOWED_FLAGS="^-[apt]$"
 readonly WORKING_DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
 readonly SCRIPT_NAME="$("basename" "${BASH_SOURCE[0]}")"
 
-# Include error handling functionality.
-. "${WORKING_DIR}/ErrorHandling.sh"
-
 readonly AWS_DIR="${HOME}/.aws"
 readonly AWS_CREDENTIALS="${AWS_DIR}/credentials"
 readonly AWS_HISTORY="${AWS_DIR}/history"
 
 readonly TOKEN_EXPIRY_REGEX="^x_security_token_expires..*"
+
+
+################################################################################
+# Include error handling functionality.
+################################################################################
+. "${WORKING_DIR}/../handlers/ErrorHandling.sh"
 
 
 ################################################################################
@@ -184,8 +187,8 @@ create_job () {
 #        example) as this script makes no attempt to manage logs.
 ################################################################################
 create_mac_agent() {
-  local -r PLIST_FILE="${HOME}/Library/LaunchAgents/com.intelematics.AwsKeepAlive_${profile}.plist"
-  local -r PLIST_SERVICE="com.intelematics.awskeepalive_${profile}.activator"
+  local -r PLIST_FILE="${HOME}/Library/LaunchAgents/com.flic.AwsKeepAlive.plist"
+  local -r PLIST_SERVICE="com.flic.awskeepalive.activator"
   local -r SERVICE_LOADED="$("launchctl" "list" | "grep" "${PLIST_SERVICE}")"
   local -r SESSION_REFRESH_SECS="$((timeout - REFRESH_BUFFER))"
 
@@ -289,8 +292,8 @@ set_aws_files() {
 
 ################################################################################
 # Records the account and profile used for this login to the history file.  If
-# this is the first time the profile has been used or the timeout has changed,
-# the program will also (re)create a job to keep the session active.
+# the profile is not in the history file or the timeout has changed, the program
+# will also (re)create a job to keep the session active.
 ################################################################################
 set_history() {
   local -r OLD_ACCOUNT="$("get_account")"
@@ -305,7 +308,8 @@ set_history() {
       sed -i "" "s/^\(${profile}\) ${OLD_ACCOUNT}\(..*\)$/\1 ${account}\2/" "${AWS_HISTORY}"
     fi
   else
-    # First run for profile
+    # First run for profile.  Only keep active profile in history.
+    > "${AWS_HISTORY}"
     echo "${profile} ${account} ${timeout}" >> "${AWS_HISTORY}"
     create_job
   fi
@@ -342,7 +346,7 @@ start_session() {
 
   if [[ "${?}" != "${SUCCESS}" ]]; then
     exit_with_error "${NO_SESSION_ERROR}" \
-                    "Could not connect with profile ${profile},account ${account} & timeout ${timeout}."
+                    "Could not connect with profile ${profile}, account ${account} & timeout ${timeout}."
   fi
 }
 

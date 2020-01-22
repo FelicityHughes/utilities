@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
 
 ################################################################################
-# This script updates Homebrew and its formulae and casks.  It removes old
-# versions as well - you may want to leave this part out if you worry about
-# breaking changes.
+# This script updates Homebrew and its formulae and casks.  It optionally
+# removes old versions as well.
 #
-# Use cron to run this daily and keep all software up to date.
+# The program can be called with the following argument (which is optional):
+# -c Indicates the script should remove old formulae & casks.
+#
+# It is assumed both brew and brew-cask-upgrade are installed.
+# See https://github.com/buo/homebrew-cask-upgrade for details
 ################################################################################
-BREW_EXE="/usr/local/bin/brew"
+BREW_EXE="$("which" "brew")"
 
 # "${BREW_EXE}" update - No longer needed as it's done by cask upgrade.
 "${BREW_EXE}" upgrade
 "${BREW_EXE}" cu --cleanup -y < /dev/null  # See https://github.com/buo/homebrew-cask-upgrade for details
 "${BREW_EXE}" cleanup
-# NOTE:  May need to remove old Java installations manually from 
-# /Library/Java/JavaVirtualMachines

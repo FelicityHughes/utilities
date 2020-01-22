@@ -17,7 +17,6 @@ readonly TRUE=1
 ################################################################################
 readonly SUCCESS=0
 readonly UNDEFINED_ERROR=1
-readonly BAD_ARGUMENT_ERROR=98
 readonly SCRIPT_INTERRUPTED=99
 
 
