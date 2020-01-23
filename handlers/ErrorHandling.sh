@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 ################################################################################
 # This script is a library of common error-related functions for use by other
 # scripts.

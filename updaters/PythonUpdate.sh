@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -l
 
 ################################################################################
 # This script keeps Python, pyenv references & packages installed via

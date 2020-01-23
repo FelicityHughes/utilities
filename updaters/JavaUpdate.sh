@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -l
 
 # Need to beware of re-use of 1.8 & 11 references.
 # Update Java via Homebrew

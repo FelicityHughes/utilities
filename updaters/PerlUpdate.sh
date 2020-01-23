@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -l
 
 ################################################################################
 # This script keeps Perl up-to-date.  If you are using the previous stable

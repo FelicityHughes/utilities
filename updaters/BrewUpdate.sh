@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -l
 
 ################################################################################
 # This script updates Homebrew and its formulae and casks.  It optionally
